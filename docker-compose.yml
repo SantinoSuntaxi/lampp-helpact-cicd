@@ -20,7 +20,7 @@ services:
         ports: 
             - "80:80"
         volumes:
-            - /home/ansibleadmin:/var/www/html
+            - /home/ansibleadmin/unitTest:/var/www/html
         links:
             - db
         networks:
