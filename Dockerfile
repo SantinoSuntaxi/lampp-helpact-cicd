@@ -1,4 +1,4 @@
-FROM php:7.2.0-apache
+FROM php:7.3.0-apache
 ARG DEBIAN_FRONTEND=noninteractive
 RUN docker-php-ext-install mysqli
 # Include alternative DB driver
@@ -17,3 +17,9 @@ RUN docker-php-ext-install zip
 RUN docker-php-ext-install gd
 
 RUN a2enmod rewrite
+
+# Add a new user "tfmdevops" with user id 8877
+RUN useradd -u 8877 tfmdevops
+# Change to non-root privilege
+USER tfmdevops
+
